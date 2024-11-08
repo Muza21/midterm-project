@@ -18,10 +18,30 @@
         <button>search</button>
       </form>
       <ul>
-        <li>profile</li>
-        <li>message</li>
-        <li>orders</li>
-        <li>my cart</li>
+        <li>
+          <div class="logo_container">
+            <img src="./assets/icons/profile.svg" alt="profile" />
+          </div>
+          <p>profile</p>
+        </li>
+        <li>
+          <div class="logo_container">
+            <img src="./assets/icons/message.svg" alt="message" />
+          </div>
+          <p>message</p>
+        </li>
+        <li>
+          <div class="logo_container">
+            <img src="./assets/icons/heart.svg" alt="heart" />
+          </div>
+          <p>orders</p>
+        </li>
+        <li>
+          <div class="logo_container">
+            <img src="./assets/icons/cart.svg" alt="cart" />
+          </div>
+          <p>my cart</p>
+        </li>
       </ul>
     </header>
     <main>
@@ -37,34 +57,36 @@
           <option value="">featured</option>
         </select>
         <div>
-          <img src="" alt="grid view" />
-          <img src="" alt="list view" />
+          <img src="./assets/icons/gridview.svg" alt="grid view" />
+          <img src="./assets/icons/listview.svg" alt="list view" />
         </div>
       </div>
       <div class="filters">
         <div class="filter_tag">
-          <span>samsung</span><img src="" alt="close" />
+          <span>samsung</span><img src="./assets/icons/clear.svg" alt="close" />
         </div>
         <div class="filter_tag">
-          <span>apple</span><img src="" alt="close" />
+          <span>apple</span><img src="./assets/icons/clear.svg" alt="close" />
         </div>
         <div class="filter_tag">
-          <span>poco</span><img src="" alt="close" />
+          <span>poco</span><img src="./assets/icons/clear.svg" alt="close" />
         </div>
         <div class="filter_tag">
-          <span>metalic</span><img src="" alt="close" />
+          <span>metalic</span><img src="./assets/icons/clear.svg" alt="close" />
         </div>
         <div class="filter_tag">
-          <span>4 star</span><img src="" alt="close" />
+          <span>4 star</span><img src="./assets/icons/clear.svg" alt="close" />
         </div>
         <div class="filter_tag">
-          <span>3 star</span><img src="" alt="close" />
+          <span>3 star</span><img src="./assets/icons/clear.svg" alt="close" />
         </div>
         <button>clear all filter</button>
       </div>
       <div class="products_list">
         <div class="product_card">
-          <div class="image_container"><img src="" alt="product image" /></div>
+          <div class="image_container">
+            <img src="./assets/images/phone.png" alt="product image" />
+          </div>
           <div class="product_details">
             <div class="product_details">
               <div class="price">
@@ -72,12 +94,21 @@
                 ><span class="old_price">$1128.00</span>
               </div>
               <div class="rate">
-                <img src="" alt="stars" />
+                <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                <img src="./assets/icons/star_grey.svg" alt="stars" />
                 <span class="rate_score">7.5</span>
               </div>
             </div>
             <div class="">
-              <button><img src="" alt="heart logo add to favourite" /></button>
+              <button>
+                <img
+                  src="./assets/icons/favorite_border.svg"
+                  alt="heart logo add to favourite"
+                />
+              </button>
             </div>
           </div>
           <div class="product_name">GoPro HERO6 4K Action Camera - Black</div>
@@ -89,13 +120,13 @@
             <option value="10">show 30</option>
           </select>
           <div class="logo_container">
-            <img src="" alt="left arrow" />
+            <img src="./assets/icons/chevron-left.svg" alt="left arrow" />
           </div>
           <button>1</button>
           <button>2</button>
           <button>3</button>
           <div class="logo_container">
-            <img src="" alt="right arrow" />
+            <img src="./assets/icons/chevron-right.svg" alt="right arrow" />
           </div>
         </div>
       </div>
@@ -103,7 +134,7 @@
     <aside>
       <div class="">
         <h4>category</h4>
-        <img src="" alt="drop down arrow" />
+        <img src="./assets/icons/expand_less.svg" alt="drop down arrow" />
       </div>
       <ul>
         <li>mobile accessory</li>
@@ -115,7 +146,7 @@
 
       <div class="">
         <h4>brands</h4>
-        <img src="" alt="drop down arrow" />
+        <img src="./assets/icons/expand_less.svg" alt="drop down arrow" />
       </div>
       <ul>
         <li>
@@ -159,7 +190,7 @@
 
       <div class="">
         <h4>featered</h4>
-        <img src="" alt="drop down arrow" />
+        <img src="./assets/icons/expand_less.svg" alt="drop down arrow" />
       </div>
       <ul>
         <li>
@@ -221,7 +252,14 @@
         <p>&copy; 2023 Ecommerce.</p>
         <div></div>
         <ul>
-          <li><a href="">english</a><img src="" alt="arrow" /></li>
+          <li>
+            <a href=""
+              ><img
+                src="./assets/images/us.png"
+                alt="united states flag"
+              />english</a
+            ><img src="./assets/icons/expand_more.svg" alt="arrow" />
+          </li>
           <ul>
             <li><a href="">russian</a></li>
             <li><a href="">french</a></li>
