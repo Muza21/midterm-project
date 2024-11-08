@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/styles/style.css" />
-    <title>title</title>
+    <title>Ecommerce</title>
   </head>
   <body>
     <header>
-      <div><img src="" alt="logo" /></div>
+      <div><img src="./assets/icons/logo-symbol.svg" alt="logo" /></div>
       <h1>brand</h1>
       <form action="">
         <input type="text" id="search" name="search" />
@@ -18,15 +18,255 @@
         <button>search</button>
       </form>
       <ul>
-        <li>profile</li>
-        <li>message</li>
-        <li>orders</li>
-        <li>my cart</li>
+        <li>
+          <div class="logo_container">
+            <img src="./assets/icons/profile.svg" alt="profile" />
+          </div>
+          <p>profile</p>
+        </li>
+        <li>
+          <div class="logo_container">
+            <img src="./assets/icons/message.svg" alt="message" />
+          </div>
+          <p>message</p>
+        </li>
+        <li>
+          <div class="logo_container">
+            <img src="./assets/icons/heart.svg" alt="heart" />
+          </div>
+          <p>orders</p>
+        </li>
+        <li>
+          <div class="logo_container">
+            <img src="./assets/icons/cart.svg" alt="cart" />
+          </div>
+          <p>my cart</p>
+        </li>
       </ul>
     </header>
-    <main></main>
-    <aside></aside>
-    <footer></footer>
+    <main>
+      <div class="product_list_header">
+        <p>12,911 items in Mobile accessory</p>
+        <input type="checkbox" name="verified" id="verified" />
+        <label for="verified">verified only</label>
+        <select name="" id="">
+          <option value="">featured</option>
+          <option value="">featured</option>
+          <option value="">featured</option>
+          <option value="">featured</option>
+          <option value="">featured</option>
+        </select>
+        <div>
+          <img src="./assets/icons/gridview.svg" alt="grid view" />
+          <img src="./assets/icons/listview.svg" alt="list view" />
+        </div>
+      </div>
+      <div class="filters">
+        <div class="filter_tag">
+          <span>samsung</span><img src="./assets/icons/clear.svg" alt="close" />
+        </div>
+        <div class="filter_tag">
+          <span>apple</span><img src="./assets/icons/clear.svg" alt="close" />
+        </div>
+        <div class="filter_tag">
+          <span>poco</span><img src="./assets/icons/clear.svg" alt="close" />
+        </div>
+        <div class="filter_tag">
+          <span>metalic</span><img src="./assets/icons/clear.svg" alt="close" />
+        </div>
+        <div class="filter_tag">
+          <span>4 star</span><img src="./assets/icons/clear.svg" alt="close" />
+        </div>
+        <div class="filter_tag">
+          <span>3 star</span><img src="./assets/icons/clear.svg" alt="close" />
+        </div>
+        <button>clear all filter</button>
+      </div>
+      <div class="products_list">
+        <div class="product_card">
+          <div class="image_container">
+            <img src="./assets/images/phone.png" alt="product image" />
+          </div>
+          <div class="product_details">
+            <div class="product_details">
+              <div class="price">
+                <span class="current_price">99.50</span
+                ><span class="old_price">$1128.00</span>
+              </div>
+              <div class="rate">
+                <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                <img src="./assets/icons/star_grey.svg" alt="stars" />
+                <span class="rate_score">7.5</span>
+              </div>
+            </div>
+            <div class="">
+              <button>
+                <img
+                  src="./assets/icons/favorite_border.svg"
+                  alt="heart logo add to favourite"
+                />
+              </button>
+            </div>
+          </div>
+          <div class="product_name">GoPro HERO6 4K Action Camera - Black</div>
+        </div>
+        <div class="pagination">
+          <select name="display" id="display">
+            <option value="10">show 10</option>
+            <option value="10">show 20</option>
+            <option value="10">show 30</option>
+          </select>
+          <div class="logo_container">
+            <img src="./assets/icons/chevron-left.svg" alt="left arrow" />
+          </div>
+          <button>1</button>
+          <button>2</button>
+          <button>3</button>
+          <div class="logo_container">
+            <img src="./assets/icons/chevron-right.svg" alt="right arrow" />
+          </div>
+        </div>
+      </div>
+    </main>
+    <aside>
+      <div class="">
+        <h4>category</h4>
+        <img src="./assets/icons/expand_less.svg" alt="drop down arrow" />
+      </div>
+      <ul>
+        <li>mobile accessory</li>
+        <li>electronics</li>
+        <li>smartphones</li>
+        <li>modern tech</li>
+        <li>see all</li>
+      </ul>
+
+      <div class="">
+        <h4>brands</h4>
+        <img src="./assets/icons/expand_less.svg" alt="drop down arrow" />
+      </div>
+      <ul>
+        <li>
+          <input
+            type="checkbox"
+            name="samsung"
+            value="samsung"
+            id="samsung"
+          /><label for="samsung">samsung</label>
+        </li>
+        <li>
+          <input type="checkbox" name="apple" value="apple" id="apple" /><label
+            for="apple"
+            >apple</label
+          >
+        </li>
+        <li>
+          <input
+            type="checkbox"
+            name="huawei"
+            value="huawei"
+            id="huawei"
+          /><label for="huawei">huawei</label>
+        </li>
+        <li>
+          <input type="checkbox" name="pocco" value="pocco" id="pocco" /><label
+            for="pocco"
+            >pocco</label
+          >
+        </li>
+        <li>
+          <input
+            type="checkbox"
+            name="lenovo"
+            value="lenovo"
+            id="lenovo"
+          /><label for="lenovo">lenovo</label>
+        </li>
+        <li>see all</li>
+      </ul>
+
+      <div class="">
+        <h4>featered</h4>
+        <img src="./assets/icons/expand_less.svg" alt="drop down arrow" />
+      </div>
+      <ul>
+        <li>
+          <input
+            type="checkbox"
+            name="metallic"
+            value="metallic"
+            id="metallic"
+          /><label for="metallic">metallic</label>
+        </li>
+        <li>
+          <input
+            type="checkbox"
+            name="plastic-cover"
+            value="plastic cover"
+            id="plastic-cover"
+          /><label for="plastic-cover">plastic cover</label>
+        </li>
+        <li>
+          <input
+            type="checkbox"
+            name="8gb-ram"
+            value="8GB Ram"
+            id="8gb-ram"
+          /><label for="8gb-ram">8GB Ram</label>
+        </li>
+        <li>
+          <input
+            type="checkbox"
+            name="super-power"
+            value="Super power"
+            id="super-power"
+          /><label for="super-power">Super power</label>
+        </li>
+        <li>
+          <input
+            type="checkbox"
+            name="large-memory"
+            value="Large Memory"
+            id="large-memory"
+          /><label for="large-memory">Large Memory</label>
+        </li>
+        <li>see all</li>
+      </ul>
+    </aside>
+    <footer>
+      <h4>subscribe on our newsletter</h4>
+      <p>
+        get daily news on upcoming offers from many suppliers all over the world
+      </p>
+      <form action="">
+        <fieldset>
+          <img src="" alt="email logo" />
+          <input type="text" />
+          <button>subscribe</button>
+        </fieldset>
+      </form>
+      <div>
+        <p>&copy; 2023 Ecommerce.</p>
+        <div></div>
+        <ul>
+          <li>
+            <a href=""
+              ><img
+                src="./assets/images/us.png"
+                alt="united states flag"
+              />english</a
+            ><img src="./assets/icons/expand_more.svg" alt="arrow" />
+          </li>
+          <ul>
+            <li><a href="">russian</a></li>
+            <li><a href="">french</a></li>
+          </ul>
+        </ul>
+      </div>
+    </footer>
     <script src="./assets/scripts/script.js"></script>
   </body>
 </html>
