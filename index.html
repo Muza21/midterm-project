@@ -3,62 +3,112 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="#" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./assets/styles/style.css" />
     <title>Ecommerce</title>
   </head>
   <body>
-    <header>
-      <div><img src="./assets/icons/logo-symbol.svg" alt="logo" /></div>
-      <h1>brand</h1>
+    <header class="main_header">
+      <div class="main_logo">
+        <a href="#">
+          <img src="./assets/icons/logo-colored.svg" alt="logo" />
+        </a>
+      </div>
       <form action="">
-        <input type="text" id="search" name="search" />
-        <select name="category" id="category">
-          <option value="1">All category</option>
-        </select>
-        <button>search</button>
+        <input type="text" id="search" name="search" placeholder="Search" />
+        <div class="category">
+          <select name="category" id="selected_category">
+            <option value="all">All category</option>
+          </select>
+          <!-- <div class="selected_category">
+            <p>All category</p>
+            <img src="./assets/icons/expand_more.svg" alt="arrow" />
+          </div>
+          <ul class="category_list">
+            <li>category1</li>
+            <li>category2</li>
+            <li>category3</li>
+            <li>category4</li>
+            <li>category5</li>
+            <li>category6</li>
+          </ul> -->
+        </div>
+        <button class="search_button">search</button>
       </form>
-      <ul>
-        <li>
-          <div class="logo_container">
-            <img src="./assets/icons/profile.svg" alt="profile" />
-          </div>
-          <p>profile</p>
-        </li>
-        <li>
-          <div class="logo_container">
-            <img src="./assets/icons/message.svg" alt="message" />
-          </div>
-          <p>message</p>
-        </li>
-        <li>
-          <div class="logo_container">
-            <img src="./assets/icons/heart.svg" alt="heart" />
-          </div>
-          <p>orders</p>
-        </li>
-        <li>
-          <div class="logo_container">
-            <img src="./assets/icons/cart.svg" alt="cart" />
-          </div>
-          <p>my cart</p>
-        </li>
-      </ul>
+      <nav class="navigation">
+        <ul class="navigation_list">
+          <li>
+            <a href="#">
+              <div class="logo_container">
+                <img src="./assets/icons/profile.svg" alt="profile" />
+              </div>
+              <p>profile</p>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="logo_container">
+                <img src="./assets/icons/message.svg" alt="message" />
+              </div>
+              <p>message</p>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="logo_container">
+                <img src="./assets/icons/heart.svg" alt="heart" />
+              </div>
+              <p>orders</p>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="logo_container">
+                <img src="./assets/icons/cart.svg" alt="cart" />
+              </div>
+              <p>my cart</p>
+            </a>
+          </li>
+        </ul>
+      </nav>
     </header>
     <main>
       <div class="product_list_header">
-        <p>12,911 items in Mobile accessory</p>
-        <input type="checkbox" name="verified" id="verified" />
-        <label for="verified">verified only</label>
-        <select name="" id="">
-          <option value="">featured</option>
-          <option value="">featured</option>
-          <option value="">featured</option>
-          <option value="">featured</option>
-          <option value="">featured</option>
-        </select>
-        <div>
-          <img src="./assets/icons/gridview.svg" alt="grid view" />
-          <img src="./assets/icons/listview.svg" alt="list view" />
+        <p>12,911 items in <strong>Mobile accessory</strong></p>
+        <div class="filter_options">
+          <input type="checkbox" name="verified" id="verified" />
+          <label for="verified">verified only</label>
+          <div class="select">
+            <select name="filter" id="selected_filter">
+              <option value="featured">Featured</option>
+            </select>
+            <!-- <div class="selected_filter">
+              <p>featured</p>
+              <img src="./assets/icons/expand_more.svg" alt="arrow" />
+            </div>
+            <ul class="filter_list">
+              <li>category1</li>
+              <li>category2</li>
+              <li>category3</li>
+              <li>category4</li>
+              <li>category5</li>
+              <li>category6</li>
+            </ul> -->
+          </div>
+          <div class="view_option">
+            <button class="grid_view active">
+              <img src="./assets/icons/gridview.svg" alt="grid view" />
+            </button>
+            <button class="list_view">
+              <img src="./assets/icons/listview.svg" alt="list view" />
+            </button>
+          </div>
         </div>
       </div>
       <div class="filters">
@@ -82,56 +132,513 @@
         </div>
         <button>clear all filter</button>
       </div>
-      <div class="products_list">
-        <div class="product_card">
-          <div class="image_container">
-            <img src="./assets/images/phone.png" alt="product image" />
-          </div>
-          <div class="product_details">
+      <div class="products_content">
+        <div class="products_list">
+          <div class="product_card">
+            <div class="image_container">
+              <img src="./assets/images/phone.png" alt="product image" />
+            </div>
             <div class="product_details">
-              <div class="price">
-                <span class="current_price">99.50</span
-                ><span class="old_price">$1128.00</span>
+              <div>
+                <div class="price">
+                  <span class="current_price">$99.50</span
+                  ><span class="old_price">$1128.00</span>
+                </div>
+                <div class="rate">
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_grey.svg" alt="stars" />
+                  <span class="rate_score">7.5</span>
+                </div>
               </div>
-              <div class="rate">
-                <img src="./assets/icons/star_yellow.svg" alt="stars" />
-                <img src="./assets/icons/star_yellow.svg" alt="stars" />
-                <img src="./assets/icons/star_yellow.svg" alt="stars" />
-                <img src="./assets/icons/star_yellow.svg" alt="stars" />
-                <img src="./assets/icons/star_grey.svg" alt="stars" />
-                <span class="rate_score">7.5</span>
+              <div class="favourite">
+                <button>
+                  <img
+                    src="./assets/icons/favorite_border.svg"
+                    alt="heart logo add to favourite"
+                  />
+                </button>
               </div>
             </div>
-            <div class="">
-              <button>
-                <img
-                  src="./assets/icons/favorite_border.svg"
-                  alt="heart logo add to favourite"
-                />
-              </button>
-            </div>
+            <div class="product_name">GoPro HERO6 4K Action Camera - Black</div>
           </div>
-          <div class="product_name">GoPro HERO6 4K Action Camera - Black</div>
+
+          <!-- Cards list here test card above -->
+          <div class="product_card">
+            <div class="image_container">
+              <img src="./assets/images/phone.png" alt="product image" />
+            </div>
+            <div class="product_details">
+              <div>
+                <div class="price">
+                  <span class="current_price">$99.50</span
+                  ><span class="old_price">$1128.00</span>
+                </div>
+                <div class="rate">
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_grey.svg" alt="stars" />
+                  <span class="rate_score">7.5</span>
+                </div>
+              </div>
+              <div class="favourite">
+                <button>
+                  <img
+                    src="./assets/icons/favorite_border.svg"
+                    alt="heart logo add to favourite"
+                  />
+                </button>
+              </div>
+            </div>
+            <div class="product_name">GoPro HERO6 4K Action Camera - Black</div>
+          </div>
+          <div class="product_card">
+            <div class="image_container">
+              <img src="./assets/images/phone.png" alt="product image" />
+            </div>
+            <div class="product_details">
+              <div>
+                <div class="price">
+                  <span class="current_price">$99.50</span
+                  ><span class="old_price">$1128.00</span>
+                </div>
+                <div class="rate">
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_grey.svg" alt="stars" />
+                  <span class="rate_score">7.5</span>
+                </div>
+              </div>
+              <div class="favourite">
+                <button>
+                  <img
+                    src="./assets/icons/favorite_border.svg"
+                    alt="heart logo add to favourite"
+                  />
+                </button>
+              </div>
+            </div>
+            <div class="product_name">GoPro HERO6 4K Action Camera - Black</div>
+          </div>
+          <div class="product_card">
+            <div class="image_container">
+              <img src="./assets/images/phone.png" alt="product image" />
+            </div>
+            <div class="product_details">
+              <div>
+                <div class="price">
+                  <span class="current_price">$99.50</span
+                  ><span class="old_price">$1128.00</span>
+                </div>
+                <div class="rate">
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_grey.svg" alt="stars" />
+                  <span class="rate_score">7.5</span>
+                </div>
+              </div>
+              <div class="favourite">
+                <button>
+                  <img
+                    src="./assets/icons/favorite_border.svg"
+                    alt="heart logo add to favourite"
+                  />
+                </button>
+              </div>
+            </div>
+            <div class="product_name">GoPro HERO6 4K Action Camera - Black</div>
+          </div>
+          <div class="product_card">
+            <div class="image_container">
+              <img src="./assets/images/phone.png" alt="product image" />
+            </div>
+            <div class="product_details">
+              <div>
+                <div class="price">
+                  <span class="current_price">$99.50</span
+                  ><span class="old_price">$1128.00</span>
+                </div>
+                <div class="rate">
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_grey.svg" alt="stars" />
+                  <span class="rate_score">7.5</span>
+                </div>
+              </div>
+              <div class="favourite">
+                <button>
+                  <img
+                    src="./assets/icons/favorite_border.svg"
+                    alt="heart logo add to favourite"
+                  />
+                </button>
+              </div>
+            </div>
+            <div class="product_name">GoPro HERO6 4K Action Camera - Black</div>
+          </div>
+          <div class="product_card">
+            <div class="image_container">
+              <img src="./assets/images/phone.png" alt="product image" />
+            </div>
+            <div class="product_details">
+              <div>
+                <div class="price">
+                  <span class="current_price">$99.50</span
+                  ><span class="old_price">$1128.00</span>
+                </div>
+                <div class="rate">
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_grey.svg" alt="stars" />
+                  <span class="rate_score">7.5</span>
+                </div>
+              </div>
+              <div class="favourite">
+                <button>
+                  <img
+                    src="./assets/icons/favorite_border.svg"
+                    alt="heart logo add to favourite"
+                  />
+                </button>
+              </div>
+            </div>
+            <div class="product_name">GoPro HERO6 4K Action Camera - Black</div>
+          </div>
+          <div class="product_card">
+            <div class="image_container">
+              <img src="./assets/images/phone.png" alt="product image" />
+            </div>
+            <div class="product_details">
+              <div>
+                <div class="price">
+                  <span class="current_price">$99.50</span
+                  ><span class="old_price">$1128.00</span>
+                </div>
+                <div class="rate">
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_grey.svg" alt="stars" />
+                  <span class="rate_score">7.5</span>
+                </div>
+              </div>
+              <div class="favourite">
+                <button>
+                  <img
+                    src="./assets/icons/favorite_border.svg"
+                    alt="heart logo add to favourite"
+                  />
+                </button>
+              </div>
+            </div>
+            <div class="product_name">GoPro HERO6 4K Action Camera - Black</div>
+          </div>
+          <div class="product_card">
+            <div class="image_container">
+              <img src="./assets/images/phone.png" alt="product image" />
+            </div>
+            <div class="product_details">
+              <div>
+                <div class="price">
+                  <span class="current_price">$99.50</span
+                  ><span class="old_price">$1128.00</span>
+                </div>
+                <div class="rate">
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_grey.svg" alt="stars" />
+                  <span class="rate_score">7.5</span>
+                </div>
+              </div>
+              <div class="favourite">
+                <button>
+                  <img
+                    src="./assets/icons/favorite_border.svg"
+                    alt="heart logo add to favourite"
+                  />
+                </button>
+              </div>
+            </div>
+            <div class="product_name">GoPro HERO6 4K Action Camera - Black</div>
+          </div>
+          <div class="product_card">
+            <div class="image_container">
+              <img src="./assets/images/phone.png" alt="product image" />
+            </div>
+            <div class="product_details">
+              <div>
+                <div class="price">
+                  <span class="current_price">$99.50</span
+                  ><span class="old_price">$1128.00</span>
+                </div>
+                <div class="rate">
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_grey.svg" alt="stars" />
+                  <span class="rate_score">7.5</span>
+                </div>
+              </div>
+              <div class="favourite">
+                <button>
+                  <img
+                    src="./assets/icons/favorite_border.svg"
+                    alt="heart logo add to favourite"
+                  />
+                </button>
+              </div>
+            </div>
+            <div class="product_name">GoPro HERO6 4K Action Camera - Black</div>
+          </div>
+          <div class="product_card">
+            <div class="image_container">
+              <img src="./assets/images/phone.png" alt="product image" />
+            </div>
+            <div class="product_details">
+              <div>
+                <div class="price">
+                  <span class="current_price">$99.50</span
+                  ><span class="old_price">$1128.00</span>
+                </div>
+                <div class="rate">
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_grey.svg" alt="stars" />
+                  <span class="rate_score">7.5</span>
+                </div>
+              </div>
+              <div class="favourite">
+                <button>
+                  <img
+                    src="./assets/icons/favorite_border.svg"
+                    alt="heart logo add to favourite"
+                  />
+                </button>
+              </div>
+            </div>
+            <div class="product_name">GoPro HERO6 4K Action Camera - Black</div>
+          </div>
+          <div class="product_card">
+            <div class="image_container">
+              <img src="./assets/images/phone.png" alt="product image" />
+            </div>
+            <div class="product_details">
+              <div>
+                <div class="price">
+                  <span class="current_price">$99.50</span
+                  ><span class="old_price">$1128.00</span>
+                </div>
+                <div class="rate">
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_grey.svg" alt="stars" />
+                  <span class="rate_score">7.5</span>
+                </div>
+              </div>
+              <div class="favourite">
+                <button>
+                  <img
+                    src="./assets/icons/favorite_border.svg"
+                    alt="heart logo add to favourite"
+                  />
+                </button>
+              </div>
+            </div>
+            <div class="product_name">GoPro HERO6 4K Action Camera - Black</div>
+          </div>
+          <div class="product_card">
+            <div class="image_container">
+              <img src="./assets/images/phone.png" alt="product image" />
+            </div>
+            <div class="product_details">
+              <div>
+                <div class="price">
+                  <span class="current_price">$99.50</span
+                  ><span class="old_price">$1128.00</span>
+                </div>
+                <div class="rate">
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_grey.svg" alt="stars" />
+                  <span class="rate_score">7.5</span>
+                </div>
+              </div>
+              <div class="favourite">
+                <button>
+                  <img
+                    src="./assets/icons/favorite_border.svg"
+                    alt="heart logo add to favourite"
+                  />
+                </button>
+              </div>
+            </div>
+            <div class="product_name">GoPro HERO6 4K Action Camera - Black</div>
+          </div>
+          <div class="product_card">
+            <div class="image_container">
+              <img src="./assets/images/phone.png" alt="product image" />
+            </div>
+            <div class="product_details">
+              <div>
+                <div class="price">
+                  <span class="current_price">$99.50</span
+                  ><span class="old_price">$1128.00</span>
+                </div>
+                <div class="rate">
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_grey.svg" alt="stars" />
+                  <span class="rate_score">7.5</span>
+                </div>
+              </div>
+              <div class="favourite">
+                <button>
+                  <img
+                    src="./assets/icons/favorite_border.svg"
+                    alt="heart logo add to favourite"
+                  />
+                </button>
+              </div>
+            </div>
+            <div class="product_name">GoPro HERO6 4K Action Camera - Black</div>
+          </div>
+          <div class="product_card">
+            <div class="image_container">
+              <img src="./assets/images/phone.png" alt="product image" />
+            </div>
+            <div class="product_details">
+              <div>
+                <div class="price">
+                  <span class="current_price">$99.50</span
+                  ><span class="old_price">$1128.00</span>
+                </div>
+                <div class="rate">
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_grey.svg" alt="stars" />
+                  <span class="rate_score">7.5</span>
+                </div>
+              </div>
+              <div class="favourite">
+                <button>
+                  <img
+                    src="./assets/icons/favorite_border.svg"
+                    alt="heart logo add to favourite"
+                  />
+                </button>
+              </div>
+            </div>
+            <div class="product_name">GoPro HERO6 4K Action Camera - Black</div>
+          </div>
+          <div class="product_card">
+            <div class="image_container">
+              <img src="./assets/images/phone.png" alt="product image" />
+            </div>
+            <div class="product_details">
+              <div>
+                <div class="price">
+                  <span class="current_price">$99.50</span
+                  ><span class="old_price">$1128.00</span>
+                </div>
+                <div class="rate">
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_grey.svg" alt="stars" />
+                  <span class="rate_score">7.5</span>
+                </div>
+              </div>
+              <div class="favourite">
+                <button>
+                  <img
+                    src="./assets/icons/favorite_border.svg"
+                    alt="heart logo add to favourite"
+                  />
+                </button>
+              </div>
+            </div>
+            <div class="product_name">GoPro HERO6 4K Action Camera - Black</div>
+          </div>
+          <div class="product_card">
+            <div class="image_container">
+              <img src="./assets/images/phone.png" alt="product image" />
+            </div>
+            <div class="product_details">
+              <div>
+                <div class="price">
+                  <span class="current_price">$99.50</span
+                  ><span class="old_price">$1128.00</span>
+                </div>
+                <div class="rate">
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                  <img src="./assets/icons/star_grey.svg" alt="stars" />
+                  <span class="rate_score">7.5</span>
+                </div>
+              </div>
+              <div class="favourite">
+                <button>
+                  <img
+                    src="./assets/icons/favorite_border.svg"
+                    alt="heart logo add to favourite"
+                  />
+                </button>
+              </div>
+            </div>
+            <div class="product_name">GoPro HERO6 4K Action Camera - Black</div>
+          </div>
+          <!-- Card list endes here -->
         </div>
         <div class="pagination">
-          <select name="display" id="display">
+          <select name="display" class="display">
             <option value="10">show 10</option>
-            <option value="10">show 20</option>
-            <option value="10">show 30</option>
+            <option value="20">show 20</option>
+            <option value="30">show 30</option>
           </select>
-          <div class="logo_container">
-            <img src="./assets/icons/chevron-left.svg" alt="left arrow" />
-          </div>
-          <button>1</button>
-          <button>2</button>
-          <button>3</button>
-          <div class="logo_container">
-            <img src="./assets/icons/chevron-right.svg" alt="right arrow" />
+          <div class="pagination_nav">
+            <button>
+              <img src="./assets/icons/chevron-left.svg" alt="left arrow" />
+            </button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>
+              <img src="./assets/icons/chevron-right.svg" alt="right arrow" />
+            </button>
           </div>
         </div>
       </div>
     </main>
-    <aside>
+    <!-- <aside>
       <div class="">
         <h4>category</h4>
         <img src="./assets/icons/expand_less.svg" alt="drop down arrow" />
@@ -235,36 +742,46 @@
         </li>
         <li>see all</li>
       </ul>
-    </aside>
+    </aside> -->
     <footer>
-      <h4>subscribe on our newsletter</h4>
-      <p>
-        get daily news on upcoming offers from many suppliers all over the world
-      </p>
-      <form action="">
-        <fieldset>
-          <img src="" alt="email logo" />
-          <input type="text" />
-          <button>subscribe</button>
-        </fieldset>
-      </form>
-      <div>
-        <p>&copy; 2023 Ecommerce.</p>
-        <div></div>
-        <ul>
-          <li>
-            <a href=""
-              ><img
-                src="./assets/images/us.png"
-                alt="united states flag"
-              />english</a
-            ><img src="./assets/icons/expand_more.svg" alt="arrow" />
-          </li>
-          <ul>
-            <li><a href="">russian</a></li>
-            <li><a href="">french</a></li>
-          </ul>
-        </ul>
+      <div class="footer_container">
+        <div class="footer_top">
+          <h4>subscribe on our newsletter</h4>
+          <p>
+            get daily news on upcoming offers from many suppliers all over the
+            world
+          </p>
+          <form action="">
+            <div class="form">
+              <div class="input_field">
+                <img src="./assets/icons/email.svg" alt="email logo" />
+                <input type="text" placeholder="Email" />
+              </div>
+              <button>subscribe</button>
+            </div>
+          </form>
+        </div>
+        <div class="footer_bottom">
+          <p>&copy; 2023 Ecommerce.</p>
+          <div class="language">
+            <div class="selected_language">
+              <img src="./assets/images/us.png" alt="united states flag" />
+              <span> english </span>
+              <img src="./assets/icons/expand_more.svg" alt="arrow" />
+            </div>
+            <ul class="language_list">
+              <li>
+                <img src="./assets/icons/russia.svg" alt="united states flag" />
+
+                <span>russian</span>
+              </li>
+              <li>
+                <img src="./assets/icons/france.svg" alt="united states flag" />
+                <span>french</span>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </footer>
     <script src="./assets/scripts/script.js"></script>
