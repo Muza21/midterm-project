@@ -1,12 +1,32 @@
 const STARS_NUM = 5;
 const productsList = [];
-const productsListContainer =
-  document.getElementsByClassName("products_list")[0];
+const productsListContainer = document.querySelector(".products_list");
 const paginationNav = document.querySelector(".pagination_nav");
 const pageSizeDisplay = document.querySelector("#display");
 const itemsNumber = document.querySelector(".items_number");
+const gridViewButton = document.querySelector(".grid_view");
+const listViewButton = document.querySelector(".list_view");
 let pageSize = pageSizeDisplay.value;
 let currentPage = 1;
+let gridView = true; // if false it's a list view
+
+gridViewButton.addEventListener("click", (e) => {
+  gridView = true;
+  productsListContainer.classList.add("grid");
+  productsListContainer.classList.remove("list");
+  gridViewButton.classList.add("active");
+  listViewButton.classList.remove("active");
+  drawData(productsList);
+});
+
+listViewButton.addEventListener("click", (e) => {
+  gridView = false;
+  productsListContainer.classList.add("list");
+  productsListContainer.classList.remove("grid");
+  listViewButton.classList.add("active");
+  gridViewButton.classList.remove("active");
+  drawData(productsList);
+});
 
 const fetchData = async function () {
   try {
@@ -15,7 +35,7 @@ const fetchData = async function () {
     );
     const data = await response.json();
     productsList.push(...data.products);
-    // drawData(productsList);
+    drawData(productsList);
   } catch (e) {
     console.error(`Error: ${e}`);
   }
@@ -56,8 +76,9 @@ function calcDiscountPrice(price, discount) {
 
 function drawProductItem(product, price, stars) {
   const productItem = document.createElement("div");
-  productItem.className = "product_card";
-  productItem.innerHTML = `
+  if (gridView) {
+    productItem.className = "product_card";
+    productItem.innerHTML = `
         <div class="image_container">
           <img src="${product.thumbnail}" alt="product image" />
         </div>
@@ -83,6 +104,51 @@ function drawProductItem(product, price, stars) {
         </div>
         <div class="product_name">${product.title}</div>
     `;
+  } else {
+    productItem.className = "product_card list";
+    productItem.innerHTML = `
+        <div class="product_left">
+          <div class="image_container">
+            <img src="${product.thumbnail}" alt="product image" />
+          </div>
+          <div class="product_details">
+            <div class="product_name">
+              ${product.title}
+            </div>
+            <div>
+              <div class="price">
+                <span class="current_price">${price}</span
+                ><span class="old_price">${product.price}</span>
+              </div>
+              <div class="product_review">
+                <div class="rate">
+                  ${stars}
+                  <span class="rate_score">${product.rating}</span>
+                </div>
+                <div class="circle"></div>
+                <div class="orders">${product.minimumOrderQuantity} ${
+      product.minimumOrderQuantity === 1 ? "order" : "orders"
+    }</div>
+                <div class="circle"></div>
+                <div class="shipping">${product.shippingInformation}</div>
+              </div>
+            </div>
+            <div class="product_description">
+              ${product.description}
+            </div>
+            <a href="#">View details</a>
+          </div>
+        </div>
+        <div class="favourite">
+          <button>
+            <img
+              src="./assets/icons/favorite_border.svg"
+              alt="heart logo add to favourite"
+            />
+          </button>
+        </div>
+    `;
+  }
   return productItem;
 }
 
