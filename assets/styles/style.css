@@ -123,6 +123,7 @@ li {
   color: #ffffff;
   font-weight: 500;
   height: 100%;
+  cursor: pointer;
 }
 
 .product_list_header {
@@ -301,6 +302,10 @@ li {
   display: flex;
 }
 
+.product_card.list .image_container {
+  min-width: 261px;
+}
+
 .product_card.list .product_details {
   border: none;
 }
@@ -403,6 +408,7 @@ li {
   justify-content: center;
   align-items: center;
   background-color: #ffffff;
+  overflow: hidden;
 }
 
 .product_card .rate_score {

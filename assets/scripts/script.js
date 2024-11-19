@@ -6,27 +6,11 @@ const pageSizeDisplay = document.querySelector("#display");
 const itemsNumber = document.querySelector(".items_number");
 const gridViewButton = document.querySelector(".grid_view");
 const listViewButton = document.querySelector(".list_view");
+const sortFilter = document.querySelector("#selected_filter");
+const searchInputField = document.querySelector("#search");
 let pageSize = pageSizeDisplay.value;
 let currentPage = 1;
 let gridView = true; // if false it's a list view
-
-gridViewButton.addEventListener("click", (e) => {
-  gridView = true;
-  productsListContainer.classList.add("grid");
-  productsListContainer.classList.remove("list");
-  gridViewButton.classList.add("active");
-  listViewButton.classList.remove("active");
-  drawData(productsList);
-});
-
-listViewButton.addEventListener("click", (e) => {
-  gridView = false;
-  productsListContainer.classList.add("list");
-  productsListContainer.classList.remove("grid");
-  listViewButton.classList.add("active");
-  gridViewButton.classList.remove("active");
-  drawData(productsList);
-});
 
 const fetchData = async function () {
   try {
@@ -43,8 +27,76 @@ const fetchData = async function () {
 
 fetchData();
 
+const searchProduct = function () {
+  const searchValue = searchInputField.value.toLowerCase();
+  const filteredProducts = [
+    ...productsList.filter((product) => {
+      return (
+        product.title.toLowerCase().includes(searchValue) ||
+        product.shippingInformation.toLowerCase().includes(searchValue)
+      );
+    }),
+  ];
+  drawData(filteredProducts);
+};
+
+const sortProducts = function () {
+  const selectedValue = sortFilter.value;
+  const [sortBy, direction] = selectedValue.split("-");
+  if (sortBy === "name") {
+    if (direction === "ascending") {
+      productsList.sort(
+        (productA, productB) =>
+          productA.title.toLowerCase() > productB.title.toLowerCase()
+      );
+    } else {
+      productsList.sort(
+        (productA, productB) =>
+          productA.title.toLowerCase() < productB.title.toLowerCase()
+      );
+    }
+  } else {
+    if (direction === "ascending") {
+      productsList.sort(
+        (productA, productB) =>
+          calcDiscountPrice(productA.price, productA.discountPercentage) -
+          calcDiscountPrice(productB.price, productB.discountPercentage)
+      );
+    } else {
+      productsList.sort(
+        (productA, productB) =>
+          calcDiscountPrice(productB.price, productB.discountPercentage) -
+          calcDiscountPrice(productA.price, productA.discountPercentage)
+      );
+    }
+  }
+  drawData(productsList);
+};
+
+searchInputField.addEventListener("keyup", searchProduct);
+
+sortFilter.addEventListener("change", sortProducts);
+
 pageSizeDisplay.addEventListener("change", (e) => {
   pageSize = e.target.value;
+  drawData(productsList);
+});
+
+gridViewButton.addEventListener("click", () => {
+  gridView = true;
+  productsListContainer.classList.add("grid");
+  productsListContainer.classList.remove("list");
+  gridViewButton.classList.add("active");
+  listViewButton.classList.remove("active");
+  drawData(productsList);
+});
+
+listViewButton.addEventListener("click", () => {
+  gridView = false;
+  productsListContainer.classList.add("list");
+  productsListContainer.classList.remove("grid");
+  listViewButton.classList.add("active");
+  gridViewButton.classList.remove("active");
   drawData(productsList);
 });
 
@@ -70,7 +122,10 @@ function drawStars(rating) {
   return starsDrawing;
 }
 
-function calcDiscountPrice(price, discount) {
+function calcDiscountPrice(price, discount = undefined) {
+  if (!discount) {
+    return price;
+  }
   return (price - (price * discount) / 100).toFixed(2);
 }
 
@@ -80,7 +135,7 @@ function drawProductItem(product, price, stars) {
     productItem.className = "product_card";
     productItem.innerHTML = `
         <div class="image_container">
-          <img src="${product.thumbnail}" alt="product image" />
+          <img src="${product.images[2]}" alt="product image" />
         </div>
         <div class="product_details">
           <div>
@@ -109,7 +164,7 @@ function drawProductItem(product, price, stars) {
     productItem.innerHTML = `
         <div class="product_left">
           <div class="image_container">
-            <img src="${product.thumbnail}" alt="product image" />
+            <img src="${product.images[2]}" alt="product image" />
           </div>
           <div class="product_details">
             <div class="product_name">
