@@ -347,7 +347,7 @@ li {
   margin-top: 30px;
 }
 
-.pagination .display {
+.pagination #display {
   padding: 10px;
   background: #ffffff;
   border-radius: 6px;
@@ -380,7 +380,8 @@ li {
   cursor: pointer;
 }
 
-.pagination .pagination_nav button:hover {
+.pagination .pagination_nav button:hover,
+.pagination .pagination_nav button.active {
   background-color: #dee2e7;
   color: #8b96a5;
 }
