@@ -111,6 +111,21 @@ function onPaginationClick(nextPage) {
 function drawPagination(products) {
   paginationNav.innerHTML = "";
   const pageCount = Math.ceil(products.length / pageSize);
+  const buttonPrev = document.createElement("button");
+  let iconName = "chevron-left.svg";
+  if (currentPage === 1) {
+    iconName = "chevron-left-grey.svg";
+  } else {
+    buttonPrev.addEventListener("click", (e) => {
+      console.log(e.target);
+      currentPage -= 1;
+      drawData(productsList);
+    });
+  }
+  buttonPrev.innerHTML = `
+    <img src="./assets/icons/${iconName}" alt="left arrow" />
+  `;
+  paginationNav.appendChild(buttonPrev);
   for (let i = 0; i < pageCount; i++) {
     const button = document.createElement("button");
     button.innerText = i + 1;
@@ -123,4 +138,19 @@ function drawPagination(products) {
     });
     paginationNav.appendChild(button);
   }
+  const buttonNext = document.createElement("button");
+  let nextIconName = "chevron-right.svg";
+  if (currentPage === pageCount) {
+    nextIconName = "chevron-right-grey.svg";
+  } else {
+    buttonNext.addEventListener("click", (e) => {
+      console.log(e.target);
+      currentPage += 1;
+      drawData(productsList);
+    });
+  }
+  buttonNext.innerHTML = `
+    <img src="./assets/icons/${nextIconName}" alt="right arrow" />
+  `;
+  paginationNav.appendChild(buttonNext);
 }
