@@ -6,6 +6,7 @@ const pageSizeDisplay = document.querySelector("#display");
 const itemsNumber = document.querySelector(".items_number");
 const gridViewButton = document.querySelector(".grid_view");
 const listViewButton = document.querySelector(".list_view");
+const sortFilter = document.querySelector("#selected_filter");
 let pageSize = pageSizeDisplay.value;
 let currentPage = 1;
 let gridView = true; // if false it's a list view
@@ -43,6 +44,39 @@ const fetchData = async function () {
 
 fetchData();
 
+sortFilter.addEventListener("change", (e) => {
+  const selectedValue = e.target.value;
+  const [sortBy, direction] = selectedValue.split("-");
+  if (sortBy === "name") {
+    if (direction === "ascending") {
+      productsList.sort(
+        (productA, productB) =>
+          productA.title.toLowerCase() > productB.title.toLowerCase()
+      );
+    } else {
+      productsList.sort(
+        (productA, productB) =>
+          productA.title.toLowerCase() < productB.title.toLowerCase()
+      );
+    }
+  } else {
+    if (direction === "ascending") {
+      productsList.sort(
+        (productA, productB) =>
+          calcDiscountPrice(productA.price, productA.discountPercentage) -
+          calcDiscountPrice(productB.price, productB.discountPercentage)
+      );
+    } else {
+      productsList.sort(
+        (productA, productB) =>
+          calcDiscountPrice(productB.price, productB.discountPercentage) -
+          calcDiscountPrice(productA.price, productA.discountPercentage)
+      );
+    }
+  }
+  drawData(productsList);
+});
+
 pageSizeDisplay.addEventListener("change", (e) => {
   pageSize = e.target.value;
   drawData(productsList);
@@ -70,7 +104,10 @@ function drawStars(rating) {
   return starsDrawing;
 }
 
-function calcDiscountPrice(price, discount) {
+function calcDiscountPrice(price, discount = undefined) {
+  if (!discount) {
+    return price;
+  }
   return (price - (price * discount) / 100).toFixed(2);
 }
 
@@ -80,7 +117,7 @@ function drawProductItem(product, price, stars) {
     productItem.className = "product_card";
     productItem.innerHTML = `
         <div class="image_container">
-          <img src="${product.thumbnail}" alt="product image" />
+          <img src="${product.images[2]}" alt="product image" />
         </div>
         <div class="product_details">
           <div>

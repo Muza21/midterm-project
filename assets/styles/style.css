@@ -403,6 +403,7 @@ li {
   justify-content: center;
   align-items: center;
   background-color: #ffffff;
+  overflow: hidden;
 }
 
 .product_card .rate_score {
