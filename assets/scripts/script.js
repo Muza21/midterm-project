@@ -12,38 +12,6 @@ let pageSize = pageSizeDisplay.value;
 let currentPage = 1;
 let gridView = true; // if false it's a list view
 
-searchInputField.addEventListener("keyup", (e) => {
-  // console.log(e.target.value.toLowerCase());
-  const searchValue = e.target.value.toLowerCase();
-  const filteredProducts = [
-    ...productsList.filter((product) => {
-      return (
-        product.title.toLowerCase().includes(searchValue) ||
-        product.shippingInformation.toLowerCase().includes(searchValue)
-      );
-    }),
-  ];
-  drawData(filteredProducts);
-});
-
-gridViewButton.addEventListener("click", (e) => {
-  gridView = true;
-  productsListContainer.classList.add("grid");
-  productsListContainer.classList.remove("list");
-  gridViewButton.classList.add("active");
-  listViewButton.classList.remove("active");
-  drawData(productsList);
-});
-
-listViewButton.addEventListener("click", (e) => {
-  gridView = false;
-  productsListContainer.classList.add("list");
-  productsListContainer.classList.remove("grid");
-  listViewButton.classList.add("active");
-  gridViewButton.classList.remove("active");
-  drawData(productsList);
-});
-
 const fetchData = async function () {
   try {
     const response = await fetch(
@@ -58,6 +26,19 @@ const fetchData = async function () {
 };
 
 fetchData();
+
+const searchProduct = function () {
+  const searchValue = searchInputField.value.toLowerCase();
+  const filteredProducts = [
+    ...productsList.filter((product) => {
+      return (
+        product.title.toLowerCase().includes(searchValue) ||
+        product.shippingInformation.toLowerCase().includes(searchValue)
+      );
+    }),
+  ];
+  drawData(filteredProducts);
+};
 
 const sortProducts = function () {
   const selectedValue = sortFilter.value;
@@ -92,10 +73,30 @@ const sortProducts = function () {
   drawData(productsList);
 };
 
+searchInputField.addEventListener("keyup", searchProduct);
+
 sortFilter.addEventListener("change", sortProducts);
 
 pageSizeDisplay.addEventListener("change", (e) => {
   pageSize = e.target.value;
+  drawData(productsList);
+});
+
+gridViewButton.addEventListener("click", () => {
+  gridView = true;
+  productsListContainer.classList.add("grid");
+  productsListContainer.classList.remove("list");
+  gridViewButton.classList.add("active");
+  listViewButton.classList.remove("active");
+  drawData(productsList);
+});
+
+listViewButton.addEventListener("click", () => {
+  gridView = false;
+  productsListContainer.classList.add("list");
+  productsListContainer.classList.remove("grid");
+  listViewButton.classList.add("active");
+  gridViewButton.classList.remove("active");
   drawData(productsList);
 });
 
