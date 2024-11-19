@@ -44,8 +44,8 @@ const fetchData = async function () {
 
 fetchData();
 
-sortFilter.addEventListener("change", (e) => {
-  const selectedValue = e.target.value;
+const sortProducts = function () {
+  const selectedValue = sortFilter.value;
   const [sortBy, direction] = selectedValue.split("-");
   if (sortBy === "name") {
     if (direction === "ascending") {
@@ -75,7 +75,9 @@ sortFilter.addEventListener("change", (e) => {
     }
   }
   drawData(productsList);
-});
+};
+
+sortFilter.addEventListener("change", sortProducts);
 
 pageSizeDisplay.addEventListener("change", (e) => {
   pageSize = e.target.value;
