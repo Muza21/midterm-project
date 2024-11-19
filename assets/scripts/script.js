@@ -4,6 +4,7 @@ const productsListContainer =
   document.getElementsByClassName("products_list")[0];
 const paginationNav = document.querySelector(".pagination_nav");
 const pageSizeDisplay = document.querySelector("#display");
+const itemsNumber = document.querySelector(".items_number");
 let pageSize = pageSizeDisplay.value;
 let currentPage = 1;
 
@@ -14,7 +15,7 @@ const fetchData = async function () {
     );
     const data = await response.json();
     productsList.push(...data.products);
-    drawData(productsList);
+    // drawData(productsList);
   } catch (e) {
     console.error(`Error: ${e}`);
   }
@@ -87,6 +88,8 @@ function drawProductItem(product, price, stars) {
 
 function drawData(products) {
   productsListContainer.innerHTML = "";
+  itemsNumber.innerText = "";
+  itemsNumber.innerText = products.length;
   for (let i = (currentPage - 1) * pageSize; i < pageSize * currentPage; i++) {
     if (!products[i]) {
       break;

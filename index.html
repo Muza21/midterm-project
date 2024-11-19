@@ -68,7 +68,10 @@
     </header>
     <main>
       <div class="product_list_header">
-        <p>12,911 items in <strong>Mobile accessory</strong></p>
+        <p>
+          <span class="items_number">12,911</span> items in
+          <strong>Mobile accessory</strong>
+        </p>
         <div class="filter_options">
           <input type="checkbox" name="verified" id="verified" />
           <label for="verified">verified only</label>
@@ -78,7 +81,7 @@
             </select>
           </div>
           <div class="view_option">
-            <button class="grid_view">
+            <button class="grid_view active">
               <img src="./assets/icons/gridview.svg" alt="grid view" />
             </button>
             <button class="list_view">
@@ -109,8 +112,8 @@
         <button>clear all filter</button>
       </div>
       <div class="products_content">
-        <div class="products_list">
-          <div class="product_card">
+        <div class="products_list list">
+          <!-- <div class="product_card">
             <div class="image_container">
               <img src="./assets/images/phone.png" alt="product image" />
             </div>
@@ -139,6 +142,52 @@
               </div>
             </div>
             <div class="product_name">GoPro HERO6 4K Action Camera - Black</div>
+          </div>
+           -->
+          <div class="product_card list">
+            <div class="product_left">
+              <div class="image_container">
+                <img src="./assets/images/phone.png" alt="product image" />
+              </div>
+              <div class="product_details">
+                <div class="product_name">
+                  GoPro HERO6 4K Action Camera - Black
+                </div>
+                <div>
+                  <div class="price">
+                    <span class="current_price">$99.50</span
+                    ><span class="old_price">$1128.00</span>
+                  </div>
+                  <div class="product_review">
+                    <div class="rate">
+                      <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                      <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                      <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                      <img src="./assets/icons/star_yellow.svg" alt="stars" />
+                      <img src="./assets/icons/star_grey.svg" alt="stars" />
+                      <span class="rate_score">7.5</span>
+                    </div>
+                    <div class="circle"></div>
+                    <div class="orders">154 orders</div>
+                    <div class="circle"></div>
+                    <div class="shipping">free shipping</div>
+                  </div>
+                </div>
+                <div class="product_description">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                </div>
+                <a href="#">View details</a>
+              </div>
+            </div>
+            <div class="favourite">
+              <button>
+                <img
+                  src="./assets/icons/favorite_border.svg"
+                  alt="heart logo add to favourite"
+                />
+              </button>
+            </div>
           </div>
         </div>
         <div class="pagination">
