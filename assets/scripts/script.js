@@ -7,9 +7,24 @@ const itemsNumber = document.querySelector(".items_number");
 const gridViewButton = document.querySelector(".grid_view");
 const listViewButton = document.querySelector(".list_view");
 const sortFilter = document.querySelector("#selected_filter");
+const searchInputField = document.querySelector("#search");
 let pageSize = pageSizeDisplay.value;
 let currentPage = 1;
 let gridView = true; // if false it's a list view
+
+searchInputField.addEventListener("keyup", (e) => {
+  // console.log(e.target.value.toLowerCase());
+  const searchValue = e.target.value.toLowerCase();
+  const filteredProducts = [
+    ...productsList.filter((product) => {
+      return (
+        product.title.toLowerCase().includes(searchValue) ||
+        product.shippingInformation.toLowerCase().includes(searchValue)
+      );
+    }),
+  ];
+  drawData(filteredProducts);
+});
 
 gridViewButton.addEventListener("click", (e) => {
   gridView = true;
@@ -148,7 +163,7 @@ function drawProductItem(product, price, stars) {
     productItem.innerHTML = `
         <div class="product_left">
           <div class="image_container">
-            <img src="${product.thumbnail}" alt="product image" />
+            <img src="${product.images[2]}" alt="product image" />
           </div>
           <div class="product_details">
             <div class="product_name">

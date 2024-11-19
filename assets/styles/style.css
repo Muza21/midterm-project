@@ -123,6 +123,7 @@ li {
   color: #ffffff;
   font-weight: 500;
   height: 100%;
+  cursor: pointer;
 }
 
 .product_list_header {
@@ -299,6 +300,10 @@ li {
 
 .product_card.list .product_left {
   display: flex;
+}
+
+.product_card.list .image_container {
+  min-width: 261px;
 }
 
 .product_card.list .product_details {
