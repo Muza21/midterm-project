@@ -108,23 +108,27 @@ function onPaginationClick(nextPage) {
   drawData(productsList);
 }
 
-function drawPagination(products) {
-  paginationNav.innerHTML = "";
-  const pageCount = Math.ceil(products.length / pageSize);
-  const buttonPrev = document.createElement("button");
-  let iconName = "chevron-left.svg";
-  if (currentPage === 1) {
-    iconName = "chevron-left-grey.svg";
+function drawArrowPaginationButton(iconName, leftArrow, firstOrLastPage) {
+  const button = document.createElement("button");
+  if (currentPage === firstOrLastPage) {
+    iconName = `${iconName}-grey.svg`;
   } else {
-    buttonPrev.addEventListener("click", (e) => {
-      console.log(e.target);
-      currentPage -= 1;
+    iconName = `${iconName}.svg`;
+    button.addEventListener("click", (e) => {
+      currentPage = leftArrow ? currentPage - 1 : currentPage + 1;
       drawData(productsList);
     });
   }
-  buttonPrev.innerHTML = `
-    <img src="./assets/icons/${iconName}" alt="left arrow" />
+  button.innerHTML = `
+    <img src="./assets/icons/${iconName}" />
   `;
+  return button;
+}
+
+function drawPagination(products) {
+  paginationNav.innerHTML = "";
+  const pageCount = Math.ceil(products.length / pageSize);
+  const buttonPrev = drawArrowPaginationButton("chevron-left", true, 1);
   paginationNav.appendChild(buttonPrev);
   for (let i = 0; i < pageCount; i++) {
     const button = document.createElement("button");
@@ -138,19 +142,10 @@ function drawPagination(products) {
     });
     paginationNav.appendChild(button);
   }
-  const buttonNext = document.createElement("button");
-  let nextIconName = "chevron-right.svg";
-  if (currentPage === pageCount) {
-    nextIconName = "chevron-right-grey.svg";
-  } else {
-    buttonNext.addEventListener("click", (e) => {
-      console.log(e.target);
-      currentPage += 1;
-      drawData(productsList);
-    });
-  }
-  buttonNext.innerHTML = `
-    <img src="./assets/icons/${nextIconName}" alt="right arrow" />
-  `;
+  const buttonNext = drawArrowPaginationButton(
+    "chevron-right",
+    false,
+    pageCount
+  );
   paginationNav.appendChild(buttonNext);
 }
