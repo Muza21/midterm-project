@@ -1,3 +1,4 @@
+const STARS_NUM = 5;
 const productsList = [];
 const productsListContainer =
   document.getElementsByClassName("products_list")[0];
@@ -33,7 +34,7 @@ function drawStars(rating) {
   for (let i = 0; i < fullStarsNum; i++) {
     starsRating += yellowStar;
   }
-  for (let i = fullStarsNum; i < 5; i++) {
+  for (let i = fullStarsNum; i < STARS_NUM; i++) {
     starsRating += greyStar;
   }
   return starsRating;
@@ -46,8 +47,12 @@ function calcDiscountPrice(price, discount) {
 function drawData(data) {
   productsListContainer.innerHTML = "";
   data.forEach((product) => {
-    const starsRating = drawStars(product.rating, product.discountPercentage);
-    const discountedPrice = calcDiscountPrice(product.price);
+    const starsRating = drawStars(product.rating);
+    const discountedPrice = calcDiscountPrice(
+      product.price,
+      product.discountPercentage
+    );
+    console.log(discountedPrice);
     const productItem = document.createElement("div");
     productItem.className = "product_card";
     productItem.innerHTML = `
