@@ -39,14 +39,14 @@ function drawStars(rating) {
   </svg>
   `;
   const fullStarsNum = Math.round(rating / 2);
-  let starsRating = "";
+  let starsDrawing = "";
   for (let i = 0; i < fullStarsNum; i++) {
-    starsRating += yellowStar;
+    starsDrawing += yellowStar;
   }
   for (let i = fullStarsNum; i < STARS_NUM; i++) {
-    starsRating += greyStar;
+    starsDrawing += greyStar;
   }
-  return starsRating;
+  return starsDrawing;
 }
 
 function calcDiscountPrice(price, discount) {
