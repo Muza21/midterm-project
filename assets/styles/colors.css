@@ -1,0 +1,15 @@
+:root {
+  --color-gray-100: #eff2f4;
+  --color-gray-200: #dee2e7;
+  --color-gray-300: #8b96a5;
+  --color-gray-400: #505050;
+  --color-gray-500: #606060;
+  --color-gray-600: #1c1c1c;
+  --color-green-600: #00b517;
+  --color-orange-600: #ff9017;
+  --color-white: #ffffff;
+  --color-primary: #0d6efd;
+  --color-primary-gradient: linear-gradient(180deg, #127fff 0%, #0067ff 100%);
+  --color-text-main: var(--color-gray-600);
+  --color-text-secondary: var(--color-gray-300);
+}
