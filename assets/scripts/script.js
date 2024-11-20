@@ -184,7 +184,7 @@ function drawProductItem(product, price, stars) {
                 <div class="orders">${product.minimumOrderQuantity} ${
       product.minimumOrderQuantity === 1 ? "order" : "orders"
     }</div>
-                <div class="circle"></div>
+                <div class="circle second"></div>
                 <div class="shipping">${product.shippingInformation}</div>
               </div>
             </div>

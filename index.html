@@ -15,13 +15,61 @@
   </head>
   <body>
     <header class="main_header">
-      <div class="main_logo">
-        <a href="#">
-          <img src="./assets/icons/logo-colored.svg" alt="logo" />
-        </a>
+      <div class="main_header_top">
+        <div class="main_header_left">
+          <div class="menu">
+            <img src="./assets/icons/menu.svg" />
+            <ul class="navigation_list_mobile">
+              <li>
+                <a href="#">
+                  <span class="logo_container">
+                    <img src="./assets/icons/message.svg" alt="message" />
+                  </span>
+                  <span>message</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="logo_container">
+                    <img src="./assets/icons/heart.svg" alt="heart" />
+                  </span>
+                  <span>orders</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="main_logo">
+            <a href="#">
+              <img src="./assets/icons/logo-colored.svg" alt="logo" />
+            </a>
+          </div>
+        </div>
+
+        <div class="navigation mobile">
+          <ul class="navigation_list">
+            <li>
+              <a href="#">
+                <div class="logo_container">
+                  <img src="./assets/icons/person.svg" alt="profile" />
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <div class="logo_container">
+                  <img src="./assets/icons/shopping_cart.svg" alt="cart" />
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
       <form action="">
-        <input type="text" id="search" name="search" placeholder="Search" />
+        <div class="search_input">
+          <input type="text" id="search" name="search" placeholder="Search" />
+          <img src="./assets/icons/search.svg" />
+        </div>
         <div class="category">
           <select name="category" id="selected_category">
             <option value="all">All category</option>
@@ -95,27 +143,6 @@
             </button>
           </div>
         </div>
-      </div>
-      <div class="filters">
-        <div class="filter_tag">
-          <span>samsung</span><img src="./assets/icons/clear.svg" alt="close" />
-        </div>
-        <div class="filter_tag">
-          <span>apple</span><img src="./assets/icons/clear.svg" alt="close" />
-        </div>
-        <div class="filter_tag">
-          <span>poco</span><img src="./assets/icons/clear.svg" alt="close" />
-        </div>
-        <div class="filter_tag">
-          <span>metalic</span><img src="./assets/icons/clear.svg" alt="close" />
-        </div>
-        <div class="filter_tag">
-          <span>4 star</span><img src="./assets/icons/clear.svg" alt="close" />
-        </div>
-        <div class="filter_tag">
-          <span>3 star</span><img src="./assets/icons/clear.svg" alt="close" />
-        </div>
-        <button>clear all filter</button>
       </div>
       <div class="products_content">
         <div class="products_list grid"></div>
